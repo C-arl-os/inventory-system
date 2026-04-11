@@ -3,6 +3,7 @@ const pool = require('./src/config/database');
 const express = require('express');
 const authRoutes = require('./src/routes/auth.routes');
 const categoryRoutes = require('./src/routes/category.routes');
+const productRoutes = require('./src/routes/product.routes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/categories', productRoutes);
 
 pool.connect()
     .then(() => {
